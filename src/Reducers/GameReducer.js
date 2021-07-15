@@ -1,14 +1,14 @@
-import {
-  DISMISS_DIALOG,
-  RESET,
-  SELECT_CARD,
-  SELECT_TYPE,
-} from '../Actions/Types';
+import {DISMISS_DIALOG, SELECT_CARD, SELECT_TYPE} from '../Actions/Types';
 import {GameCards} from '../Components/Game/CardItemComponent';
-import {LogBox} from 'react-native';
 
 export const gameReducer = (
   state = {
+    cards: [
+      GameCards.spadeAce,
+      GameCards.heartAce,
+      GameCards.diamondAce,
+      GameCards.clubAce,
+    ],
     selectType: [],
     selectCard: GameCards.none,
     isWin: false,
@@ -24,19 +24,11 @@ export const gameReducer = (
         return {...state};
       }
       const isWin = state.selectType.includes(action.selected);
-      if (isWin) {
-        state.win++;
-        state.isWin = isWin;
-        state.showDialog = true;
-        state.selectCard = action.selected;
-        return {...state};
-      } else {
-        state.lose++;
-        state.isWin = isWin;
-        state.showDialog = true;
-        state.selectCard = action.selected;
-        return {...state};
-      }
+      state.isWin = isWin;
+      state.showDialog = true;
+      state.selectCard = action.selected;
+      isWin ? state.win++ : state.lose++;
+      return {...state};
     case SELECT_TYPE:
       if (state.selectType.includes(action.selected)) {
         state.selectType = state.selectType.filter(
@@ -54,8 +46,29 @@ export const gameReducer = (
       state.showDialog = false;
       state.selectType = [];
       state.selectCard = GameCards.none;
+      state.cards = shuffle(state.cards);
       return {...state};
     default:
       return {...state};
   }
 };
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex !== 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}

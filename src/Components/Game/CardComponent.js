@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Modal, StyleSheet, Text, View} from 'react-native';
-import CardItemComponent, {GameCards} from './CardItemComponent';
+import CardItemComponent from './CardItemComponent';
 
 class CardComponent extends Component {
   constructor(props) {
@@ -42,31 +42,39 @@ class CardComponent extends Component {
           </View>
         </Modal>
         <CardItemComponent
-          type={/*this.props.selected.cards[0]*/ GameCards.spadeAce}
-          isSelect={this.props.selected.selectCard === GameCards.spadeAce}
+          type={this.props.selected.cards[0]}
+          isSelect={
+            this.props.selected.selectCard === this.props.selected.cards[0]
+          }
           onPress={() => {
-            this.props.onSelect(GameCards.spadeAce);
+            this.props.onSelect(this.props.selected.cards[0]);
           }}
         />
         <CardItemComponent
-          type={GameCards.heartAce}
-          isSelect={this.props.selected.selectCard === GameCards.heartAce}
+          type={this.props.selected.cards[1]}
+          isSelect={
+            this.props.selected.selectCard === this.props.selected.cards[1]
+          }
           onPress={() => {
-            this.props.onSelect(GameCards.heartAce);
+            this.props.onSelect(this.props.selected.cards[1]);
           }}
         />
         <CardItemComponent
-          type={GameCards.diamondAce}
-          isSelect={this.props.selected.selectCard === GameCards.diamondAce}
+          type={this.props.selected.cards[2]}
+          isSelect={
+            this.props.selected.selectCard === this.props.selected.cards[2]
+          }
           onPress={() => {
-            this.props.onSelect(GameCards.diamondAce);
+            this.props.onSelect(this.props.selected.cards[2]);
           }}
         />
         <CardItemComponent
-          type={GameCards.clubAce}
-          isSelect={this.props.selected.selectCard === GameCards.clubAce}
+          type={this.props.selected.cards[3]}
+          isSelect={
+            this.props.selected.selectCard === this.props.selected.cards[3]
+          }
           onPress={() => {
-            this.props.onSelect(GameCards.clubAce);
+            this.props.onSelect(this.props.selected.cards[3]);
           }}
         />
       </View>
