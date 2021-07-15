@@ -42,7 +42,7 @@ class CardComponent extends Component {
           </View>
         </Modal>
         <CardItemComponent
-          type={GameCards.spadeAce}
+          type={/*this.props.selected.cards[0]*/ GameCards.spadeAce}
           isSelect={this.props.selected.selectCard === GameCards.spadeAce}
           onPress={() => {
             this.props.onSelect(GameCards.spadeAce);
