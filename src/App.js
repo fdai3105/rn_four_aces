@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import BottomButton from './Containers/Game/BottomButton';
 import CardComponent from './Containers/Game/CardComponent';
-import {Point} from './Components';
+import Point from './Containers/Game/Point';
 
 class App extends Component {
   render() {

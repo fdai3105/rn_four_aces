@@ -5,7 +5,9 @@ class Point extends Component {
   render() {
     return (
       <View style={styles.view}>
-        <Text style={styles.text}>Win: 0 / Lose: 0</Text>
+        <Text style={styles.text}>
+          Win: {this.props.state.win} / Lose: {this.props.state.lose}
+        </Text>
       </View>
     );
   }

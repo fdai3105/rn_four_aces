@@ -7,10 +7,6 @@ import Button4 from '../../Assets/Images/button4.svg';
 import {GameCards} from './CardItemComponent';
 
 class BottomButtons extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <View style={styles.view}>

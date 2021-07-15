@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {CardComponent} from '../../Components';
-import {reset, selectCard} from '../../Actions';
+import {dismissDialog, reset, selectCard} from '../../Actions';
 import {GameCards} from '../../Components/Game/CardItemComponent';
 
 const mapStateToProp = state => {
@@ -16,6 +16,9 @@ const mapDispatchToProp = dispatch => {
     },
     onReset: () => {
       dispatch(reset());
+    },
+    onDismiss: () => {
+      dispatch(dismissDialog());
     },
   };
 };

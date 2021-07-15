@@ -49,13 +49,13 @@ class CardItemComponent extends Component {
         if (this.props.isSelect) {
           return (
             <TouchableWithoutFeedback onPress={this.props.onPress}>
-              <Front3 style={[styles.card]} />
+              <Front3 style={styles.card} />
             </TouchableWithoutFeedback>
           );
         } else {
           return (
             <TouchableWithoutFeedback onPress={this.props.onPress}>
-              <Back style={[styles.card]} />
+              <Back style={styles.card} />
             </TouchableWithoutFeedback>
           );
         }

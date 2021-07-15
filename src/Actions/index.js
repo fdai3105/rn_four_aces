@@ -1,4 +1,4 @@
-import {RESET, SELECT_CARD, SELECT_TYPE} from './Types';
+import {DISMISS_DIALOG, SELECT_CARD, SELECT_TYPE} from './Types';
 
 export const selectType = value => ({
   type: SELECT_TYPE,
@@ -12,4 +12,8 @@ export const selectCard = value => ({
 
 export const reset = () => ({
   type: RESET,
+});
+
+export const dismissDialog = () => ({
+  type: DISMISS_DIALOG,
 });
